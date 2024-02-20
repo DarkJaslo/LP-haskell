@@ -17,7 +17,12 @@ average (x:xs) = s / l
         s = fromIntegral (mySum (x:xs))
         l = fromIntegral (myLength (x:xs))
 
---buildPalindrome :: [Int] -> [Int]
+buildPalindrome' :: [Int] -> [Int]
+buildPalindrome' [x] = [x]
+buildPalindrome' (x:xs) = (buildPalindrome' xs) ++ [x]
+
+buildPalindrome :: [Int] -> [Int]
+buildPalindrome (x:xs) = (buildPalindrome' (x:xs)) ++ (x:xs)
 
 --remove :: [Int] -> [Int] -> [Int]
 
