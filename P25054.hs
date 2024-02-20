@@ -40,7 +40,9 @@ remove (x:xs) (y:ys) = list
             |  otherwise = [x] ++ (remove xs (y:ys))
 
 
---flatten :: [[Int]] -> [Int]
+flatten :: [[Int]] -> [Int]
+flatten [] = []
+flatten (x:xs) = x ++ (flatten xs) 
 
 --oddsNevens :: [Int] -> ([Int],[Int])
 
