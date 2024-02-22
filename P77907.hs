@@ -24,6 +24,13 @@ slowFib n
     | otherwise = slowFib(n-2) + slowFib(n-1)
 
 quickFib :: Int -> Int
+quickFib n = snd (fib n) -- hem d'agafar el segon element de la tupla
+    where
+        fib 0 = (0,0)
+        fib 1 = (0,1)
+        fib i = (f1, f1+f2)
+            where
+                (f2,f1) = fib (i-1)
 
 {- comentari
 multi
