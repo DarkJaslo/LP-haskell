@@ -24,7 +24,6 @@ slowFib n
     | otherwise = slowFib(n-2) + slowFib(n-1)
 
 quickFib :: Int -> Int
-quickFib n = 0 --Cada quickFib retorna una tupla amb els dos anteriors
 
 {- comentari
 multi
