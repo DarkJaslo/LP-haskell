@@ -22,6 +22,7 @@ buildPalindrome' [x] = [x]
 buildPalindrome' (x:xs) = (buildPalindrome' xs) ++ [x]
 
 buildPalindrome :: [Int] -> [Int]
+buildPalindrome [] = []
 buildPalindrome (x:xs) = (buildPalindrome' (x:xs)) ++ (x:xs)
 
 --auxiliary for remove
@@ -31,6 +32,7 @@ isIn [x] y = x==y
 isIn (x:xs) y = (isIn [x] y) || (isIn (xs) y)
 
 remove :: [Int] -> [Int] -> [Int]
+remove [] [] = []
 remove [] (y:ys) = []
 remove (x:xs) [] = (x:xs)
 remove (x:xs) (y:ys) = list
