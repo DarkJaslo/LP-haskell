@@ -44,7 +44,42 @@ flatten :: [[Int]] -> [Int]
 flatten [] = []
 flatten (x:xs) = x ++ (flatten xs) 
 
---oddsNevens :: [Int] -> ([Int],[Int])
+odds :: [Int] -> [Int]
+odds [] = []
+odds (x:a) = list
+    where
+        list
+            | mod x 2 == 1 = [x] ++ odds a
+            | otherwise = odds a
 
---primeDivisors :: Int -> [Int]
+evens :: [Int] -> [Int]
+evens [] = []
+evens (x:a) = list
+    where
+        list
+            | mod x 2 == 0 = [x] ++ evens a
+            | otherwise = evens a
+
+oddsNevens :: [Int] -> ([Int],[Int])
+oddsNevens [] = ([],[])
+oddsNevens (x:a) = (odds (x:a), evens (x:a))
+
+isPrime :: Int -> Bool
+isPrime 0 = False
+isPrime 1 = False
+isPrime n = isPrime' 2
+    where
+        isPrime' d
+            | mod n d == 0 && d < n = False
+            | mod n d >= 1 && d < n = isPrime' (d+1)
+            | n < 0 = False
+            | otherwise = True
+
+primeDivisors :: Int -> [Int]
+primeDivisors x = primeDivisors' 2
+    where
+        primeDivisors' a
+            | a > x = []
+            | (isPrime a) && (mod x a == 0) = [a] ++ (primeDivisors' (a+1))
+            | otherwise = primeDivisors' (a+1)
 
